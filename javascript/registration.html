@@ -25,6 +25,9 @@
             document.getElementById("txt").innerHTML="Username is required";
             document.getElementById("txt").style.color="red";
         })
+        document.querySelector("#userid").addEventListener('keyup',function(e){
+            this.value=this.value.toUpperCase();
+        });
     </script>
 </body>
 </html>
