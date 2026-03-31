@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend>Register User</legend>
+        <dl>
+            <dt>Username</dt>
+            <dd>
+                <input type="text" id="userid">
+            </dd>
+            <dd id="msg"></dd>
+            <dt>Password</dt>
+            <dd>
+                <input type="password" id="userpwd" onkeypress="valid">
+            </dd>
+            <dd id="msg2"></dd>
+
+        </dl>
+    </fieldset>
+    <script>
+        document.querySelector("#userid").addEventListener('keyup',function(e){
+            let data=this.value;
+            let input="sachin";
+            if(data===input){
+                document.getElementById("msg").innerHTML= "<p style= 'color: red'>Username not available</p>  "
+            }
+            else{
+                document.getElementById("msg").innerHTML= "<p style= 'color: green'>Username available</p>  "
+            }
+        })
+        document.querySelector("#userpwd").addEventListener('keyup',function(e){
+            if(e.getModifierState("CapsLock")){
+                document.getElementById("msg2").innerHTML="CAPS LOCK KEY is on";
+                document.getElementById("msg2").style.color="red";
+            }
+        });
+    </script>
+</body>
+</html>

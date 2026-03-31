@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset style="width:350px">
+        <legend>Registration Page</legend>
+        <dl>
+            <dt>Username</dt>
+            <dd><input type="text" id="userid"></dd>
+            <dd id="txt"></dd>
+            
+        </dl>
+    </fieldset>
+    <script>
+        document.querySelector("#userid").addEventListener('focus',function(e){
+
+            document.getElementById("txt").innerHTML="Write in block letter";
+            document.getElementById("txt").style.color="orange";
+        })
+        document.querySelector("#userid").addEventListener('blur',function(e){
+            document.getElementById("txt").innerHTML="Username is required";
+            document.getElementById("txt").style.color="red";
+        })
+    </script>
+</body>
+</html>
