@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Form</title>
+
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(135deg,black,gray);
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        margin:0;
+    }
+
+    fieldset{
+        width:350px;
+        padding:25px;
+        border:none;
+        border-radius:12px;
+        background:white;
+        box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    legend{
+        font-size:22px;
+        font-weight:bold;
+        padding:0 10px;
+        border: 2px solid black;
+        border-radius: 20px;
+        background-color: white;
+    }
+
+    dt{
+        margin-top:15px;
+        font-weight:bold;
+    }
+
+    dd{
+        margin-left:0;
+        margin-top:5px;
+    }
+
+    input,select{
+        width:100%;
+        padding:10px;
+        border-radius:6px;
+        border:1px solid #ccc;
+        font-size:14px;
+        transition:0.3s;
+        box-sizing:border-box;
+    }
+
+    input:focus,select:focus{
+        outline:none;
+        border-color:#2193b0;
+        box-shadow:0 0 5px rgba(33,147,176,0.4);
+    }
+
+    button{
+        width:100%;
+        margin-top:20px;
+        padding:12px;
+        border:none;
+        border-radius:8px;
+        background:#2193b0;
+        color:white;
+        font-size:16px;
+        font-weight:bold;
+        cursor:pointer;
+        transition:0.3s;
+    }
+
+    button:hover{
+        background:#176d86;
+    }
+
+    button:disabled{
+        background:#ccc;
+        cursor:not-allowed;
+    }
+</style>
+
+</head>
+
+<body>
+
+<fieldset>
+    <legend>Payment Details</legend>
+
+    <dl>
+        <dt>Card Number</dt>
+        <dd>
+            <input type="text" autofocus id="card" placeholder="Enter card number">
+        </dd>
+
+        <dt>CVV</dt>
+        <dd>
+            <input type="text" disabled id="cvv" placeholder="Enter CVV">
+        </dd>
+
+        <dt>Expiry</dt>
+        <dd>
+            <select disabled id="exp" name="Choose expiry">
+                <optgroup label="Choose expiry">
+                    <option>2026</option>
+                    <option>2027</option>
+                    <option>2028</option>
+                    <option>2029</option>
+                    <option>2030</option>
+                    <option>2031</option>
+                    <option>2032</option>
+                    <option>2033</option>
+                </optgroup>
+            </select>
+        </dd>
+
+        <button type="submit" disabled id="btn">PAY</button>
+    </dl>
+</fieldset>
+
+
+<script>
+    document.querySelector("#card").addEventListener('blur',function(e){
+        let data=this.value.trim();
+        let cvv=document.getElementById("cvv")
+        if(data.startsWith("442255")){
+            cvv.disabled=false;
+            cvv.focus();
+        }
+    })
+    document.querySelector("#cvv").addEventListener('blur',function(e){
+        let data=this.value.trim();
+        let exp=document.getElementById("exp")
+        if(data.startsWith("44")){
+            exp.disabled=false;
+            exp.focus();
+        }
+    })
+    document.querySelector("#exp").addEventListener('change',function(e){
+        document.getElementById("btn").disabled=false;
+    })
+</script>
+
+</body>
+</html>
